@@ -1,0 +1,278 @@
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  font-family: Padauk;
+}
+
+:root {
+  --russian: "Noto Serif", Arial;
+}
+
+[lang="ru"] {
+  font-family: var(--russian);
+}
+
+#navbar {
+  position: fixed;
+  width: 350px;
+  border-right: 1px solid black;
+  height: 100%;
+  background-color: white;
+  overflow-y: auto;
+  z-index: 9000;
+}
+
+#navbar header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  padding-left: 1rem;
+  position: fixed;
+  width: inherit;
+  color: white;
+  background-color: #123e63;
+  height: 70px;
+  border-bottom: 1px solid black;
+  border-right: 1px solid black;
+  font-size: 2em;
+  font-weight: 700;
+  z-index: 9999;
+}
+
+.nav-links {
+  counter-reset: li;
+  padding-top: 5em;
+  list-style: none;
+  background-color: white;
+  position: relative;
+  width: 100%;
+}
+
+.nav-links li {
+  line-height: 60px;
+  font-size: 1.2em;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  padding-left: 40px;
+}
+
+.nav-links li [lang="ru"] {
+  position: absolute;
+  left: 107%;
+  bottom: 0;
+  padding-left: 0.3rem;
+  -webkit-transform: translateY(-0.4rem);
+          transform: translateY(-0.4rem);
+  font: italic bold 0.7rem var(--russian);
+  -webkit-transform-origin: left;
+          transform-origin: left;
+  opacity: 0;
+  -webkit-transition: 0.3s ease all;
+  transition: 0.3s ease all;
+}
+
+.nav-links li:hover [lang="ru"] {
+  opacity: 1;
+}
+
+.nav-links li {
+  line-height: 60px;
+  font-size: 1.2em;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  padding-left: 40px;
+}
+
+.nav-link {
+  text-decoration: none;
+  color: black;
+  position: relative;
+}
+
+.nav-links li:before {
+  content: "\f114";
+  font-family: FontAwesome;
+  margin-right: 0.8em;
+}
+
+cite {
+  display: block;
+  margin-top: 0.4rem;
+}
+
+cite::before {
+  content: "\f10d";
+  font-family: FontAwesome;
+  margin-right: 1rem;
+}
+
+#main-doc {
+  margin: 1rem 4rem 0px 400px;
+  position: absolute;
+}
+
+#main-doc p {
+  margin-bottom: 1rem;
+}
+
+.main-section header {
+  margin-bottom: 1rem;
+  background-color: #123e63;
+  padding: 0.3rem 1rem;
+  color: white;
+}
+
+.main-section details {
+  cursor: pointer;
+}
+
+.main-section details header [lang="ru"] {
+  font-family: var(--russian);
+  font-size: 1rem;
+  opacity: 0;
+  -webkit-transition: 0.5s opacity ease;
+  transition: 0.5s opacity ease;
+}
+
+.main-section details[open] header [lang="ru"] {
+  opacity: 1;
+}
+
+#leadin {
+  padding: 1rem;
+  background-color: rgba(0, 132, 128, 0.12);
+  margin-bottom: 1.5rem;
+}
+
+.nav-link:hover .russian {
+  opacity: 1;
+}
+
+#leadin .russian-main {
+  font: italic 1.3rem var(--russian);
+}
+
+#leadin header::after {
+  display: block;
+  margin: 0.5rem 0;
+  content: "";
+  background-color: #123e63;
+  height: 1px;
+  width: 20%;
+  opacity: 0.3;
+}
+
+#main-doc header {
+  position: relative;
+}
+
+/* Hide the summary marker */
+#main-doc details summary {
+  list-style: none;
+}
+
+/* Hide the summary marker in Chrome, too...*/
+details > summary::-webkit-details-marker {
+  display: none;
+}
+
+#main-doc details[open] header:after {
+  content: "\f068";
+  font-family: FontAwesome;
+  position: absolute;
+  bottom: 20%;
+  right: 1rem;
+}
+
+#main-doc details header:after {
+  content: "\f067";
+  font-family: FontAwesome;
+  position: absolute;
+  bottom: 20%;
+  right: 1rem;
+}
+
+code {
+  font: italic bold 0.8rem var(--russian);
+  display: inline;
+  padding: 2px 7px;
+  border-radius: 0.5rem;
+  background-color: rgba(255, 0, 0, 0.1);
+}
+
+.translation {
+  font: 1rem Padauk;
+}
+
+.translation:before {
+  content: "\f07e";
+  font-family: FontAwesome;
+  vertical-align: middle;
+  margin: 0 0.5rem;
+}
+
+#main-doc ul {
+  margin-left: 3rem;
+  margin-bottom: 1rem;
+}
+
+@media (max-width: 900px) {
+  #navbar {
+    height: 6rem;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    width: 100%;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    border-right: none;
+    -webkit-box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  #navbar header {
+    display: none;
+  }
+  .russian {
+    display: none;
+  }
+  .nav-links {
+    width: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-pack: space-evenly;
+        -ms-flex-pack: space-evenly;
+            justify-content: space-evenly;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    padding-top: 0.7rem;
+    margin-top: 0;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+  }
+  .nav-links li {
+    padding-left: 1rem;
+    border-bottom: none;
+    line-height: normal;
+  }
+  #main-doc {
+    margin: 7rem 1rem 1rem 1rem;
+  }
+}
+/*# sourceMappingURL=style.css.map */

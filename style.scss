@@ -1,0 +1,253 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Padauk;
+  }
+  :root {
+    --russian: "Noto Serif", Arial;
+  }
+  
+  [lang="ru"] {
+    font-family: var(--russian);
+  }
+  
+  #navbar {
+    position: fixed;
+    width: 350px;
+  
+    border-right: 1px solid black;
+    height: 100%;
+    background-color: white;
+    overflow-y: auto;
+    z-index: 9000;
+  
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      padding-left: 1rem;
+      position: fixed;
+      width: inherit;
+      color: white;
+      background-color: #123e63;
+      height: 70px;
+      border-bottom: 1px solid black;
+      border-right: 1px solid black;
+      font-size: 2em;
+      font-weight: 700;
+      z-index: 9999;
+    }
+  
+    //   &:hover .russian {
+    //   opacity: 1;
+    // }
+  }
+  
+  .nav-links {
+    counter-reset: li;
+    padding-top: 5em;
+    list-style: none;
+    background-color: white;
+    position: relative;
+    width: 100%;
+    li {
+      line-height: 60px;
+      font-size: 1.2em;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+      padding-left: 40px;
+  
+      [lang="ru"] {
+        position: absolute;
+        left: 107%;
+        bottom: 0;
+        padding-left: 0.3rem;
+        transform: translateY(-0.4rem);
+        font: italic bold 0.7rem var(--russian);
+        transform-origin: left;
+        opacity: 0;
+        transition: 0.3s ease all;
+      }
+  
+      &:hover [lang="ru"] {
+        opacity: 1;
+      }
+    }
+  }
+  
+  .nav-links li {
+    line-height: 60px;
+    font-size: 1.2em;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    padding-left: 40px;
+  }
+  
+  .nav-link {
+    text-decoration: none;
+    color: black;
+    position: relative;
+  }
+  
+  .nav-links li:before {
+    content: "\f114";
+    font-family: FontAwesome;
+    margin-right: 0.8em;
+  }
+  cite {
+    display: block;
+    margin-top: 0.4rem;
+  
+    &::before {
+      content: "\f10d";
+      font-family: FontAwesome;
+      margin-right: 1rem;
+    }
+  }
+  
+  #main-doc {
+    margin: 1rem 4rem 0px 400px;
+    position: absolute;
+  
+    p {
+      margin-bottom: 1rem;
+    }
+  }
+  
+  .main-section {
+    header {
+      margin-bottom: 1rem;
+      background-color: #123e63;
+      padding: 0.3rem 1rem;
+      color: white;
+    }
+    details {
+      cursor: pointer;
+  
+      header [lang="ru"] {
+        font-family: var(--russian);
+        font-size: 1rem;
+        opacity: 0;
+        transition: 0.5s opacity ease;
+      }
+  
+      &[open] header [lang="ru"] {
+        opacity: 1;
+      }
+    }
+  }
+  #leadin {
+    padding: 1rem;
+    background-color: rgba(0, 132, 128, 0.12);
+    margin-bottom: 1.5rem;
+  }
+  
+  .nav-link:hover .russian {
+    opacity: 1;
+  }
+  
+  #leadin .russian-main {
+    font: italic 1.3rem var(--russian);
+  }
+  
+  #leadin header::after {
+    display: block;
+    margin: 0.5rem 0;
+    content: "";
+    background-color: #123e63;
+    height: 1px;
+    width: 20%;
+    opacity: 0.3;
+  }
+  #main-doc header {
+    position: relative;
+  }
+  /* Hide the summary marker */
+  #main-doc details summary {
+    list-style: none;
+  }
+  
+  /* Hide the summary marker in Chrome, too...*/
+  details > summary::-webkit-details-marker {
+    display: none;
+  }
+  
+  #main-doc details[open] header:after {
+    content: "\f068";
+    font-family: FontAwesome;
+    position: absolute;
+    bottom: 20%;
+    right: 1rem;
+  }
+  
+  #main-doc details header:after {
+    content: "\f067";
+    font-family: FontAwesome;
+    position: absolute;
+    bottom: 20%;
+    right: 1rem;
+  }
+  
+  // style the Russian text (not semantically correct but 🤷🏼‍♂️)
+  
+  code {
+    font: italic bold 0.8rem var(--russian);
+    display: inline;
+    padding: 2px 7px;
+    border-radius: 0.5rem;
+    background-color: rgba(255, 0, 0, 0.1);
+  }
+  
+  .translation {
+    font: 1rem Padauk;
+  }
+  
+  .translation:before {
+    content: "\f07e";
+    font-family: FontAwesome;
+    vertical-align: middle;
+    margin: 0 0.5rem;
+  }
+  
+  #main-doc ul {
+    margin-left: 3rem;
+    margin-bottom: 1rem;
+  }
+  
+  @media (max-width: 900px) {
+    #navbar {
+      height: 6rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+      border-right: none;
+      box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+    }
+    #navbar header {
+      display: none;
+    }
+    .russian {
+      display: none;
+    }
+    .nav-links {
+      width: 100%;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-evenly;
+      align-items: center;
+      padding-top: 0.7rem;
+      margin-top: 0;
+      flex-wrap: wrap;
+    }
+    .nav-links li {
+      padding-left: 1rem;
+      border-bottom: none;
+      line-height: normal;
+    }
+  
+    #main-doc {
+      margin: 7rem 1rem 1rem 1rem;
+    }
+  }
+  
